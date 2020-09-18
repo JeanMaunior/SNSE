@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+
+{% block title %}Result Page-{{query}}{% endblock %}
+
+{% block resultAmount %}
+    <p>找到相关结果{{resAmount}}个</p>
+    <p>执行时间：{{runtime}}</p>
+{% endblock %}
+
+{% block search %}{{query}}{% endblock %}
+
+
+
+
+{% block content %}
+<style type="text/css">
+    b {
+    color: red;
+    }
+</style>
+    {% for key in results %}
+        <a href="{{key.newsUrl}}" class="package list-group-item" target="_blank">
+            <div class="row">
+
+                <div style="border: dotted dashed solid double; padding-left: 50px;">
+                    <h3>
+                        {% autoescape off %}
+                        {{key.newsTitle}}
+                        {% endautoescape %}
+                    </h3>
+                </div>
+                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 20px">
+                    <span style="margin-right: 30px;"><i class="fa fa-star"></i>{{key.newsPublishTime}} </span>
+                    <span>
+                        {% autoescape off %}
+                        {{key.newsAuthor}}
+                        {% endautoescape %}
+                    </span>
+                </div>
+                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 20px">
+                    {% autoescape off %}
+                    {{key.newsContent}}
+                    {% endautoescape %}
+                </div>
+
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Sina News Seacher Engine{% endblock %}</title>
+  <meta name="description" content="Sina News Seacher Engine" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="SNSE" />
+  <meta name="founder" content="SNSE" />
+  <link href="https://cdn.bootcss.com" rel="dns-prefetch" />
+  <link href="https://api.bootcdn.cn" rel="dns-prefetch" />
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!--[if IE 9]>
+    <script src="https://cdn.bootcss.com/geopattern/1.2.3/js/base64.min.js"></script>
+    <script src="https://cdn.bootcss.com/geopattern/1.2.3/js/typedarray.min.js"></script>
+  <![endif]-->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png?1526622111831" />
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico?1526622111831" />
+
+ </head>
+
+
+ <body style="background-color: #F8F8FF">
+
+  <header class="site-header" style="background-color: 	#E6E6FA; margin: 0px;">
+
+   <div class="container jumbotron" style="background: 	#E6E6FA">
+    <div class="row">
+     <div class="col-xs-12">
+      <h1 style="color: #FF0000; text-align: center; text-shadow: #F08080 0.08em 0.08em 0.12em;">Sina News Search Engine</h1>
+      <div style="width: 100%; height: 30px;">
+        <form action="search" method="GET" style="padding-left: 190px; padding-top: 20px;">
+          <input class="form-control search clearable"
+                 style="float: left; magin-left: 50px; height: 40px; width: 70%; outline: none; border: 1px solid #FF0000; box-sizing: border-box; padding-left: 10px;"
+                 placeholder="搜索新闻，例如：新冠疫情......       可使用'AND'、'OR'、'NOT'、'('和')'做布尔操作"
+                 autocomplete="on" autofocus="autofocus" tabindex="0" autocorrect="off" autocapitalize="off" spellcheck="false"  name="q" value="{% block search %}{% endblock %}"/>
+          <button style="float: left; height: 40px; width: 10%; outline: none; background-color: #FF0000; color: white; border-style: none">搜索</button>
+
+        </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+
+  <div class="container protocal-notice hidden-xs">
+   <div class="row">
+    <div class="col-xs-12">
+     <div class="pull-right" >
+      {% block resultAmount %}
+
+      {% endblock %}
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <main class="packages-list-container" id="all-packages" style="font-family: 'Microsoft JhengHei'; margin: 0px;">
+   <div class="container">
+    <div class="list-group packages" id="common-packages">
+     {% block content %}
+
+     {% endblock %}
+
+    </div>
+    <div class="list-group packages" id="search-results" style="display: none"></div>
+   </div>
+  </main>
+
+
+ </body>
+</html>

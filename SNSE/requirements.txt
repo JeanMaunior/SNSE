@@ -1,0 +1,7 @@
+python==3.7.4
+
+scrapy==2.2.0
+whoosh==2.7.4
+jieba==0.42.3
+django==3.0.3
+pymysql==0.9.3
